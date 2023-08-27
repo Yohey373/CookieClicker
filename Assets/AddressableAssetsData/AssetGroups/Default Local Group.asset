@@ -23,6 +23,60 @@ MonoBehaviour:
     m_SerializedLabels:
     - CookieImages
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 355a9fcd815a1954d8329a569876ced8
+    m_Address: CookieImage_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57c8e3a450633da4eb20d120d688f82b
+    m_Address: CookieImage_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 152bcb8b5a15628488832841d85b9209
+    m_Address: CookieImage_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0dfef4872d07754d940669766024bc4
+    m_Address: CookieImage_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef101836c98aece46bf7e440dba99ee1
+    m_Address: CookieImage_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99514b9fa12acc3449c2caf1cc487ef9
+    m_Address: CookieImage_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7f970b65f1242b49867a08869cd0217
+    m_Address: CookieImage_7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e83d8247ebc693249ba4d20d92f4ac03
+    m_Address: CookieImage_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bee36a3abb31d748a6c044889c41167
+    m_Address: CookieImage_9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CookieImages
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 30518704357eb564fa3cf7aa85be66fa, type: 2}
   m_SchemaSet:
