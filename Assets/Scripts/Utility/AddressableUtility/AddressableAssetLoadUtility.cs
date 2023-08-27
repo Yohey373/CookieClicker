@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceLocations;
+using Cysharp.Threading.Tasks;
 
 public class AddressableAssetLoadUtility : SingletonMonoBehaviour<AddressableAssetLoadUtility>
 {
@@ -25,21 +25,21 @@ public class AddressableAssetLoadUtility : SingletonMonoBehaviour<AddressableAss
         return (T)asset;
     }
 
-    public IEnumerator GetDownloadSize(IEnumerable addressLabel)
+    public async UniTask GetDownloadSize(IEnumerable addressLabel)
     {
         getDownloadSize = Addressables.GetDownloadSizeAsync(addressLabel);
-        yield return getDownloadSize;
+        await getDownloadSize;
         if(getDownloadSize.IsValid() && getDownloadSize.Result > 0)
         {
             Debug.Log(getDownloadSize.Result);
         }
     }
 
-    public IEnumerator CheckCatalogUpdates()
+    public async UniTask CheckCatalogUpdates()
     {
         var catalogToUpdate = new List<string>();
         checkCatalog = Addressables.CheckForCatalogUpdates();
-        yield return checkCatalog;
+        await checkCatalog;
         if(checkCatalog.IsValid() && checkCatalog.Result.Count > 0)
         {
             catalogToUpdate.AddRange(checkCatalog.Result);
@@ -48,11 +48,17 @@ public class AddressableAssetLoadUtility : SingletonMonoBehaviour<AddressableAss
         {
             Debug.Log("カタログが更新されました");
             updateCatalog = Addressables.UpdateCatalogs(catalogToUpdate);
-            yield return updateCatalog;
+            if(updateCatalog.IsValid()){
+                await updateCatalog;
+            }
         }
         else
         {
-            yield return initializeResourceLocator;
+            if(initializeResourceLocator.IsValid())
+            {
+                await initializeResourceLocator;
+            }
+
         }
     }
 

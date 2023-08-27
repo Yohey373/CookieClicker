@@ -8,7 +8,7 @@ public class CookieClickerPresenter : MonoBehaviour
     private CookieClickerView cookieClickerView;
     
     // Start is called before the first frame update
-    private void Start()
+    private async void Start()
     {
         cookieClickerModel = new CookieClickerModel();
         cookieClickerModel.LoadCookieClickCount();
@@ -18,8 +18,8 @@ public class CookieClickerPresenter : MonoBehaviour
             "CookieImages"
         };
 
-        StartCoroutine(AddressableAssetLoadUtility.Instance.CheckCatalogUpdates());
-        StartCoroutine(AddressableAssetLoadUtility.Instance.GetDownloadSize(assetslabel));
+        await AddressableAssetLoadUtility.Instance.CheckCatalogUpdates();
+        await AddressableAssetLoadUtility.Instance.GetDownloadSize(assetslabel);
 
         cookieClickerModel.LoadCookieImage();
 
