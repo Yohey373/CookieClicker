@@ -4,12 +4,35 @@ using UnityEngine;
 
 public class CookieClickerPresenter : MonoBehaviour
 {
-    private CookieClickerModel cookieClickerModel;
-    private CookieClickerView cookieClickerView;
+    internal CookieClickerModel cookieClickerModel;
+    internal CookieClickerView cookieClickerView;
     
+    private InGameStateMachine stateMachine;
+
+    internal InGameStateMachine GetMainGameState
+    {
+        get { return stateMachine; }
+    }
+
+    public InGameStateInit InGameStateInit;
+    public InGameStateStart InGameStateStart;
+    public InGameStateMain InGameStateMain;
+    public InGameStateResult InGameStateResult;
+    public InGameStateEnd InGameStateEnd;
+
     // Start is called before the first frame update
     private async void Start()
     {
+        stateMachine = new InGameStateMachine();
+
+        InGameStateInit = new InGameStateInit(stateMachine, this);
+        InGameStateStart = new InGameStateStart(stateMachine, this);
+        InGameStateMain = new InGameStateMain(stateMachine, this);
+        InGameStateResult = new InGameStateResult(stateMachine, this);
+        InGameStateEnd = new InGameStateEnd(stateMachine, this);
+
+        stateMachine.ChangeState(InGameStateInit);
+
         cookieClickerModel = new CookieClickerModel();
         cookieClickerModel.LoadCookieClickCount();
 
@@ -31,13 +54,13 @@ public class CookieClickerPresenter : MonoBehaviour
         UpdateCookieUI();
     }
 
-    private void OnClickCookie()
+    public void OnClickCookie()
     {
         cookieClickerModel.AddCookieClickCount(1);
         UpdateCookieUI();
     }
 
-    private void UpdateCookieUI()
+    public void UpdateCookieUI()
     {
         cookieClickerView.UpdateCookieCount(cookieClickerModel.GetCookieClickCount());
     }
