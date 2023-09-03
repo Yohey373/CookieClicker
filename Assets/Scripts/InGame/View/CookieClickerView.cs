@@ -15,7 +15,12 @@ public class CookieClickerView : MonoBehaviour
 
     public void SetClickButtonAction(System.Action onClick)
     {
-        clickButton.onClick.AddListener(() => onClick?.Invoke());
+        clickButton.onClick.AddListener(() => 
+        {
+            Debug.Log("DebugLog");
+            onClick?.Invoke();
+        });
+        
     }
 
     public void SetButtonImage(Sprite cookieSprite)
